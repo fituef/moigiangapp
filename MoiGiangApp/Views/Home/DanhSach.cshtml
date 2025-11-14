@@ -1,0 +1,310 @@
+﻿@model IEnumerable<MoiGiangApp.Models.LopHocPhan>
+@using MoiGiangApp.Models
+
+@{
+
+    ViewBag.Title = "DANH SÁCH LỚP HỌC PHẦN";
+    var namHocs = ViewBag.NamHocs as List<NamHoc>;
+    var hocKys = ViewBag.HocKys as List<HocKy>;
+    var nganhs = ViewBag.Nganhs as List<Nganh>;
+    var giangViens = ViewBag.GiangViens as List<ApplicationUser>;
+}
+<style>
+    .bg-success {
+        --bs-bg-opacity: 1;
+        background-color: rgb(183 223 204) !important;
+        color: black;
+    }
+
+    .bg-primary {
+        --bs-bg-opacity: 1;
+        background-color: rgb(189 203 223) !important;
+        color: black;
+    }
+
+    .bg-danger {
+        --bs-bg-opacity: 1;
+        background-color: rgb(237 194 198) !important;
+        color: black;
+    }
+
+    .bg-light {
+        --bs-bg-opacity: 1;
+        background-color: rgb(221 238 255) !important;
+        color: black;
+    }
+
+    label {
+        font-weight: bold;
+    }
+</style>
+
+<style>
+    .card {
+        box-shadow: none !important;
+    }
+</style>
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h3>DANH SÁCH LỚP HỌC PHẦN</h3>
+            @if (Session["Success"] != null)
+            {
+                <div class="alert alert-success pull-right" id="successAlert" style="transition: opacity 0.5s; display:contents">@Session["Success"].ToString()</div>
+                { Session["Success"] = null; }
+            }
+            @if (Session["Error"] != null)
+            {
+                <div class="alert alert-danger pull-right" id="errorAlert" style="transition: opacity 0.5s; display: contents">@Session["Error"]</div>
+                { Session["Error"] = null; }
+            }
+        </div>
+        <style>
+            #divheader {
+                margin-bottom: -40px !important;
+            }
+
+            tr > th {
+                color: white;
+                font-weight: bold;
+            }
+        </style>
+        <div class="card-block">
+            <!-- Row start -->
+            <div class="row">
+                <div class="col-lg-12 col-xl-12" id="divheader">
+                    <div class="tab-content tabs card-block">
+
+                        <div class="card">
+
+                            @using (Html.BeginForm("DanhSach", "Home", FormMethod.Get))
+                            {
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label class="form-label">Mã hoạc tên HP</label>
+                                        <input type="text" name="monHoc" class="form-control"
+                                               placeholder="Tìm môn học..."
+                                               value="@ViewBag.MonHoc" />
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="form-label">Năm học</label>
+                                        @Html.DropDownList("namHocId",
+                                            new SelectList(namHocs, "Id", "TenNamHoc", ViewBag.SelectedNamHoc),
+                                            "-- Tất cả --",
+                                            new { @class = "form-select form-control" })
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="form-label">Học kỳ</label>
+                                        @Html.DropDownList("hocKyId",
+                                            new SelectList(hocKys, "Id", "TenHocKy", ViewBag.SelectedHocKy),
+                                            "-- Tất cả --",
+                                            new { @class = "form-select form-control" })
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="form-label">Ngành</label>
+                                        @Html.DropDownList("nganhId",
+                                            new SelectList(nganhs, "Id", "TenNganh", ViewBag.SelectedNganh),
+                                            "-- Tất cả --",
+                                            new { @class = "form-select form-control" })
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="form-label">Giảng viên</label>
+                                        @Html.DropDownList("giangVienId",
+                                            new SelectList(giangViens, "Id", "HoTen", ViewBag.SelectedGiangVien),
+                                            "-- Tất cả --",
+                                            new { @class = "form-select form-control" })
+                                    </div>
+                                </div>
+                                <div class="mt-3 pull-right">
+                                    <button type="submit" class="btn btn-success">
+                                        <i class="fas fa-refresh"></i> THỰC HIỆN
+                                    </button>
+                                    <a href="/home/danhsach" class="btn btn-primary"> <i class="fas fa-refresh"></i>TẤT CẢ</a>
+                                </div>
+                            }
+                            <br />
+
+
+                            @if (Model.Any())
+                            {
+                                <div class="table-responsive">
+                                    <table class="table align-middle table-bordered">
+                                        <thead class="table-success" style="background:#0c9fa4">
+                                            <tr>
+                                                <th>Mã HP</th>
+                                                <th>Tên HP</th>
+                                                <th>Nhóm</th>
+                                                <th>Ngành</th>
+                                                <th>Thứ</th>
+                                                <th>Giờ</th>
+                                                <th>Phòng</th>
+                                                <th>GV</th>
+                                                <th>Gán GV</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var lop in Model)
+                                            {
+                                                var controller = ViewContext.Controller as MoiGiangApp.Controllers.HomeController;
+
+                                                if (lop.GiangVien != null)
+                                                {
+                                                    _counter = lop.GiangVien.Id;
+                                                }
+                                                var gvTrong = controller.GetGiangVienTrong(lop);
+                                                var gvDauTien = gvTrong.FirstOrDefault();
+                                                if (lop.GiangVien != null)
+                                                {
+                                                    gvDauTien = lop.GiangVien;
+                                                }
+
+
+                                                <tr class="@lop.MauNhom">
+                                                    <td><strong>@lop.MaHP</strong></td>
+                                                    <td>@lop.TenHocPhan</td>
+                                                    <td>@lop.LopHP</td>
+                                                    <td>
+                                                        <span class="badge bg-secondary">
+                                                            @lop.Nganh.TenNganh
+                                                        </span>
+                                                    </td>
+                                                    <td>@lop.Thu</td>
+                                                    <td style="text-align:center">@lop.GioHoc <br /><strong style="font-weight:bold">Tiết: @lop.Tiet - @(lop.Tiet +2)</strong></td>
+                                                    <td style="text-align:center">@lop.Phong <br />(@lop.Loai)</td>
+                                                    <td>
+                                                        @if (lop.GiangVien != null)
+                                                        {
+                                                            <span class="badge bg-primary" style="background-color:#0c9fa4 !important">@lop.GiangVien.HoTen</span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <span class="badge bg-warning">Chưa gán</span>
+                                                        }
+                                                    </td>
+                                                    <td style="text-align:center">
+                                                        @using (Html.BeginForm("GanGiangVien", "Home", FormMethod.Post, new { style = "display:inline;" }))
+                                                        {
+                                                            @Html.Hidden("lopId", lop.Id)
+                                                            <input type="hidden" name="lopId" value="@lop.Id" />
+                                                            <input type="hidden" name="namHocId" value="@ViewBag.SelectedNamHoc" />
+                                                            <input type="hidden" name="hocKyId" value="@ViewBag.SelectedHocKy" />
+                                                            <input type="hidden" name="nganhId" value="@ViewBag.SelectedNganh" />
+                                                            <input type="hidden" name="giangVienFilterId" value="@ViewBag.SelectedGiangVien" />
+                                                            <input type="hidden" name="page" value="@ViewBag.CurrentPage" />
+                                                            <input type="hidden" name="monHoc" value="@ViewBag.MonHoc" />
+                                                            @Html.AntiForgeryToken()
+                                                            <select name="giangVienId" class="form-select form-select-sm form-control" style="width:100%" required>
+                                                                <option value="">-- Chọn --</option>
+                                                                @foreach (var gv in giangViens)
+                                                                {
+                                                                    var isTrong = gvTrong.Any(g => g.Id == gv.Id);
+                                                                    var selected = (gvDauTien != null && gv.Id == gvDauTien.Id) ? "selected" : "";
+                                                                    var icon = isTrong ? "OK - " : "X - ";
+                                                                    var color = isTrong ? "text-success fw-bold" : "text-danger";
+                                                                    if (lop.GiangVien != null && lop.GiangVien.Id == gv.Id)
+                                                                    {
+                                                                        selected = (gvDauTien != null && gv.Id == gvDauTien.Id) ? "selected" : "";
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        selected = "";
+                                                                    }
+                                                                    <option value="@gv.Id" class="@color" @selected>
+                                                                        @icon @gv.HoTen
+                                                                    </option>
+                                                                }
+                                                            </select>
+                                                            <button type="submit" class="btn btn-primary btn-sm mt-1">Xếp</button>
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                    <p class="text-muted mt-3">
+                                        <i class="fas fa-info-circle"></i>
+                                        Đã hiển thị <strong>@Model.Count()</strong> lớp học phần.
+                                    </p>
+                                </div>
+                                if (ViewBag.TotalPages > 1)
+                                {
+                                    <nav class="mt-4" style="text-align:center">
+                                        <ul class="pagination justify-content-center">
+                                            @{
+                                                int current = ViewBag.CurrentPage;
+                                                int total = ViewBag.TotalPages;
+                                            }
+
+                                            <li class="page-item @(current == 1 ? "disabled" : "")">
+                                                <a class="page-link" href="@Url.Action("DanhSach", new {
+                        namHocId = ViewBag.SelectedNamHoc,
+                        hocKyId = ViewBag.SelectedHocKy,
+                        nganhId = ViewBag.SelectedNganh,
+                        giangVienId = ViewBag.SelectedGiangVien,
+                        monHoc = ViewBag.MonHoc,
+                        page = current - 1
+                    })">Trước</a>
+                                            </li>
+
+                                            <li class="page-item disabled">
+                                                <span class="page-link">Trang @current / @total</span>
+                                            </li>
+
+                                            <li class="page-item @(current == total ? "disabled" : "")">
+                                                <a class="page-link" href="@Url.Action("DanhSach", new {
+                        namHocId = ViewBag.SelectedNamHoc,
+                        hocKyId = ViewBag.SelectedHocKy,
+                        nganhId = ViewBag.SelectedNganh,
+                        giangVienId = ViewBag.SelectedGiangVien,
+                        monHoc = ViewBag.MonHoc,
+                        page = current + 1
+                    })">Sau</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                }
+
+                            }
+                            else
+                            {
+                                <div class="alert alert-info text-center">
+                                    <i class="fas fa-search fa-2x mb-3"></i>
+                                    <h5>Không tìm thấy lớp học phần nào</h5>
+                                    <p>Hãy thử thay đổi bộ lọc hoặc import dữ liệu mới.</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    setTimeout(function () {
+        var element = document.getElementById('errorAlert');
+        if (element) {
+            element.style.opacity = '0';
+            setTimeout(function () {
+                element.style.display = 'none';
+            }, 500);
+        }
+        var element2 = document.getElementById('successAlert');
+        if (element2) {
+            element2.style.opacity = '0';
+            setTimeout(function () {
+                element2.style.display = 'none';
+            }, 500);
+        }
+    }, 5000);
+</script>
+
+@functions {
+    // Biến static cấp class view
+    private static string _counter = "";
+
+     
+}

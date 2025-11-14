@@ -1,0 +1,272 @@
+﻿@model MoiGiangApp.Models.UserIndexViewModel
+@using PagedList.Mvc
+@using PagedList
+<style>
+    .card {
+        box-shadow: none !important;
+    }
+
+    .btn, form-control, input, page-link {
+        border-radius: 0px !important;
+    }
+
+    a.btn.btn-info.btnn, a.btn.btn-warning.btnn, a.btn.btn-success.btnn {
+        height: 25px;
+        line-height: 1.75;
+        width: 71px;
+        text-align: center;
+        padding: 1px;
+        font-size: 13px;
+    }
+</style>
+<style>
+    .pagination .page-link {
+        border-radius: 6px;
+        margin: 0 2px;
+        min-width: 36px;
+        text-align: center;
+    }
+
+    .pagination .page-item.active .page-link {
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+        color: white;
+    }
+
+    .pagination .page-item.disabled .page-link {
+        color: #6c757d;
+        pointer-events: none;
+    }
+</style>
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h3>QUẢN LÝ NGƯỜI DÙNG</h3>
+            @if (Session["Success"] != null)
+            {
+                <div class="alert alert-success pull-right" id="successAlert" style="transition: opacity 0.5s; display:contents">@Session["Success"].ToString()</div>
+                { Session["Success"] = null; }
+            }
+            @if (Session["Error"] != null)
+            {
+                <div class="alert alert-danger pull-right" id="errorAlert" style="transition: opacity 0.5s; display: contents">@Session["Error"]</div>
+                { Session["Error"] = null; }
+            }
+            <hr />
+            <form method="get" class="mb-0">
+                <div class="row g-3 align-items-center">
+                    <!-- SẮP XẾP -->
+                    <div class="col-lg-3">
+                        <label>NGÀNH PHỤ TRÁCH</label>
+                        <div class="input-group">
+                            @Html.DropDownList("nganhId",
+                            ViewBag.NganhList as SelectList,
+                            "-- Tất cả ngành --",
+                            new { @class = "form-select form-control" /*onchange = "this.form.submit()"*/ })
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <label>VAI TRÒ</label>
+                        <div class="input-group">
+                            @Html.DropDownList("roleName",
+                            ViewBag.RoleList as SelectList,
+                            "-- Tất cả vai trò --",
+                            new { @class = "form-select form-control" })
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label>HỌC VỊ</label>
+                        <div class="input-group">
+                            @Html.DropDownList(
+                            "hocViId",
+                            (SelectList)ViewBag.HocViList,
+                            "-- Học vị --",
+                            new { @class = "form-control" }
+                            )
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <label>LOẠI GIẢNG VIÊN</label>
+                        <div class="input-group">
+                            @Html.DropDownList(
+                            "LoaiId",
+                            (SelectList)ViewBag.LoaiGVList,
+                            "-- Loại GV --",
+                            new { @class = "form-control" }
+                            )
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label>NGÀNH GIẢNG DẠY</label>
+                        <div class="input-group">
+                            @Html.DropDownList("nganhgdID",
+                            ViewBag.NganhDayList as SelectList,
+                            "-- Tất cả ngành --",
+                            new { @class = "form-select form-control" /*onchange = "this.form.submit()"*/ })
+                        </div>
+                    </div>
+                    <!-- Ô TÌM KIẾM -->
+                    <div class="col-lg-4">
+                        <div class="input-group input-group-sm shadow-sm">
+                            <input type="text" name="searchString" value="@Model.SearchString"
+                                   class="form-control border-start-0"
+                                   placeholder="Tìm theo email hoặc họ tên..." />
+                            @if (!string.IsNullOrEmpty(Model.SearchString))
+                            {
+                                <a href="@Url.Action("Index")" class="btn btn-outline-secondary border-0">
+                                    <i class="fas fa-times"></i>
+                                </a>
+                            }
+                            <button type="submit" class="btn btn-primary border-0">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card-block">
+            <div class="row p-15">
+                <!-- Row start -->
+                @foreach (var item in Model.Users)
+                {
+                    <div class="col-md-3 mb-4 p-2 ccard-block" style="border:1px solid #025779">
+                        <img src="@(item.Hinh ?? "/assets/fitcntt.png")" style="position: absolute; width: 45px; height:45px; margin-left: 80%; " class="img-radius" alt="User-Profile-Image">
+                        <div class="card-header">
+                            <h5 class="mb-0">@item.TenHocVi@Html.Raw(".") @item.HoTen</h5>
+                        </div>
+                        <p><strong>Email:</strong> @item.Email</p>
+                        <p>
+                            <strong>Roles:</strong>
+                            @if (string.Join(", ", item.Roles).Length > 0)
+                            {
+                                foreach (var role in item.Roles)
+                                {
+                                    @Html.Raw("<span class='badge badge-pill badge-primary mr-1'>" + role + "</span>")
+                                }
+                            }
+                            else
+                            {
+                                <span>Không có</span>
+                            }
+                        </p>
+                        <p>
+                            <strong>Ngành phụ trách:</strong>
+                            @if (string.Join(", ", item.Nganhs).Length > 0)
+                            {
+                                @Html.Raw(string.Join(", ", item.Nganhs))
+                            }
+                            else
+                            {
+                                <span>Không có</span>
+                            }
+                        </p>
+                        <p>
+                            <strong>Ngành giảng dạy:</strong>
+                            @if (string.Join(", ", item.NganhDays).Length > 0)
+                            {
+                                @Html.Raw(string.Join(", ", item.NganhDays))
+                            }
+                            else
+                            {
+                                <span>Không có</span>
+                            }
+                        </p>
+                        <p>
+                            Chức danh: @item.TenLoaiGV
+                        </p>
+                        <a href="@Url.Action("Edit", "Account", new { id = item.Id })" class="btn btn-info btnn">Cập nhật</a>
+                        <a href="@Url.Action("ToggleLock", "Account", new { id = item.Id })" class="btn btnn @(item.LockoutEnabled ? "btn-warning" : "btn-success")">@(item.LockoutEnabled ? "Khóa" : "Mở khóa")</a>
+                    </div>
+                }
+            </div>
+            <!-- Row end -->
+        </div>
+        <div class="d-flex justify-content-center mt-0 mb-5">
+            <div class="pagination-container">
+                @if (Model.Users.PageCount > 1)
+                {
+                    <nav class="mt-4">
+                        <ul class="pagination justify-content-center">
+                            <!-- FIRST -->
+                            @if (Model.Users.PageNumber > 3)
+                            {
+                                <li class="page-item">
+                                    <a class="page-link" href="@Url.Action("Index", new
+                     {
+                     page = 1,
+                     searchString = Model.SearchString,
+                     nganhId = Model.NganhID,
+                     roleName = Model.roleName,
+                     hocViId = Model.HoViID,
+                     LoaiId = Model.LoaiGVID
+                     })">1</a>
+                                </li>
+                                if (Model.Users.PageNumber > 4)
+                                {
+                                    <li class="page-item disabled"><span class="page-link">...</span></li>
+                                }
+                            }
+                            <!-- TRANG GẦN NHẤT -->
+                            @{
+                                int start = Math.Max(1, Model.Users.PageNumber - 2);
+                                int end = Math.Min(Model.Users.PageCount, Model.Users.PageNumber + 2);
+                            }
+                            @for (int i = start; i <= end; i++)
+                            {
+                                <li class="page-item @(i == Model.Users.PageNumber ? "active" : "")">
+                                    <a class="page-link" href="@Url.Action("Index", new
+                  {
+                  page = i,
+                  searchString = Model.SearchString,
+                  nganhId = Model.NganhID,
+                  roleName = Model.roleName,
+                  hocViId = Model.HoViID,
+                  LoaiId = Model.LoaiGVID
+                  })">@i</a>
+            </li>
+        }
+                            <!-- LAST -->
+                            @if (Model.Users.PageNumber < Model.Users.PageCount - 2)
+                            {
+                                if (Model.Users.PageNumber < Model.Users.PageCount - 3)
+                                {
+                                    <li class="page-item disabled"><span class="page-link">...</span></li>
+                                }
+                                <li class="page-item">
+                                    <a class="page-link" href="@Url.Action("Index", new
+                     {
+                     page = Model.Users.PageCount,
+                     searchString = Model.SearchString,
+                     nganhId = Model.NganhID,
+                     roleName = Model.roleName,
+                     hocViId = Model.HoViID,
+                     LoaiId = Model.LoaiGVID
+                     })">@Model.Users.PageCount</a>
+                </li>
+            }
+                        </ul>
+                    </nav>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@*<script>
+       setTimeout(function () {
+           var element = document.getElementById('errorAlert');
+           if (element) {
+               element.style.opacity = '0';
+               setTimeout(function () {
+                   element.style.display = 'none';
+               }, 500);
+           }
+           var element2 = document.getElementById('successAlert');
+           if (element2) {
+               element2.style.opacity = '0';
+               setTimeout(function () {
+                   element2.style.display = 'none';
+               }, 500);
+           }
+       }, 5000);
+    </script>*@

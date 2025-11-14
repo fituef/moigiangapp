@@ -1,0 +1,212 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|c:\\users\\administrator\\documents\\final\\moigiangapp\\moigiangapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|solutionrelative:moigiangapp\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|c:\\users\\administrator\\documents\\final\\moigiangapp\\moigiangapp\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|solutionrelative:moigiangapp\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|c:\\users\\administrator\\documents\\final\\moigiangapp\\moigiangapp\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|solutionrelative:moigiangapp\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|c:\\users\\administrator\\documents\\final\\moigiangapp\\moigiangapp\\views\\account\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|solutionrelative:moigiangapp\\views\\account\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|c:\\users\\administrator\\documents\\final\\moigiangapp\\moigiangapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|solutionrelative:moigiangapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|c:\\users\\administrator\\documents\\final\\moigiangapp\\moigiangapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|solutionrelative:moigiangapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDb__MSSQLLocalDB/MoiGiangDB/True/SqlTable/dbo.AspNetRoles.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|c:\\users\\administrator\\documents\\final\\moigiangapp\\moigiangapp\\models\\identitymodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|solutionrelative:moigiangapp\\models\\identitymodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDb__MSSQLLocalDB/MoiGiangDB/True/SqlTable/dbo.AspNetUsers.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_LocalDb__MSSQLLocalDB/MoiGiangDB/True/SqlTable/dbo.AspNetUserClaims.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|c:\\users\\administrator\\documents\\final\\moigiangapp\\moigiangapp\\views\\account\\createuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|solutionrelative:moigiangapp\\views\\account\\createuser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|c:\\users\\administrator\\documents\\final\\moigiangapp\\moigiangapp\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B069D638-6630-4018-8418-02AEBC330CB8}|MoiGiangApp\\MoiGiangApp.csproj|solutionrelative:moigiangapp\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Views\\Account\\Edit.cshtml",
+              "RelativeDocumentMoniker": "MoiGiangApp\\Views\\Account\\Edit.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Views\\Account\\Edit.cshtml",
+              "RelativeToolTip": "MoiGiangApp\\Views\\Account\\Edit.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-13T05:47:27.834Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "dbo.AspNetUsers [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDb__MSSQLLocalDB/MoiGiangDB/True/SqlTable/dbo.AspNetUsers.sql",
+              "ToolTip": "dbo.AspNetUsers [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-11-13T04:29:44.856Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Views\\Account\\Index.cshtml",
+              "RelativeDocumentMoniker": "MoiGiangApp\\Views\\Account\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Views\\Account\\Index.cshtml",
+              "RelativeToolTip": "MoiGiangApp\\Views\\Account\\Index.cshtml",
+              "ViewState": "AgIAADsAAAAAAAAAAAAnwEkAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-13T04:20:51.252Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "MoiGiangApp\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "MoiGiangApp\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-13T03:56:59.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "MoiGiangApp\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "MoiGiangApp\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAALQAAAAAAAAAAADwv8UAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-13T03:32:02.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CreateUser.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Views\\Account\\CreateUser.cshtml",
+              "RelativeDocumentMoniker": "MoiGiangApp\\Views\\Account\\CreateUser.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Views\\Account\\CreateUser.cshtml",
+              "RelativeToolTip": "MoiGiangApp\\Views\\Account\\CreateUser.cshtml",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAF0AAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-13T03:17:39.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "MoiGiangApp\\Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "MoiGiangApp\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAWwDYAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T03:12:32.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "dbo.AspNetRoles [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDb__MSSQLLocalDB/MoiGiangDB/True/SqlTable/dbo.AspNetRoles.sql",
+              "ToolTip": "dbo.AspNetRoles [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-11-13T05:29:03.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "MoiGiangApp\\Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "MoiGiangApp\\Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAADwvykAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-13T05:29:51.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "MoiGiangApp\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "MoiGiangApp\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAALYBAAAAAAAAAAAYwLIBAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T05:32:32.582Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IdentityModels.cs",
+              "DocumentMoniker": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Models\\IdentityModels.cs",
+              "RelativeDocumentMoniker": "MoiGiangApp\\Models\\IdentityModels.cs",
+              "ToolTip": "C:\\Users\\Administrator\\Documents\\Final\\MoiGiangApp\\MoiGiangApp\\Models\\IdentityModels.cs",
+              "RelativeToolTip": "MoiGiangApp\\Models\\IdentityModels.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAEBAwC8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-13T03:11:49.544Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "dbo.AspNetUserClaims [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_LocalDb__MSSQLLocalDB/MoiGiangDB/True/SqlTable/dbo.AspNetUserClaims.sql",
+              "ToolTip": "dbo.AspNetUserClaims [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-11-13T05:29:07.379Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

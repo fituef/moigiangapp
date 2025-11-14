@@ -1,0 +1,195 @@
+﻿<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+@model MoiGiangApp.Models.UserEditViewModel
+@{
+    ViewBag.Title = "Cập nhật người dùng";
+}
+<style>
+    .checkbox-large input.form-check-input {
+        width: 20px;
+        height: 20px;
+        margin-top: 0;
+        cursor: pointer;
+    }
+
+    .checkbox-large label {
+        font-size: 15px;
+        cursor: pointer;
+    }
+
+    label {
+        font-weight: bold;
+    }
+</style>
+<div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h3>QUẢN LÝ NGƯỜI DÙNG</h3>
+            <strong>CẬP NHẬT NGƯỜI DÙNG</strong>
+        </div>
+
+        <div class="card-body p-5">
+            @using (Html.BeginForm("Edit", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(m => m.Id)
+                @Html.HiddenFor(m => m.Hinh)
+
+                <div class="row g-4">
+                    <!-- CỘT 1 -->
+                    <div class="col-lg-6">
+                        <label>ẢNH CÁ NHÂN</label>
+                        <div class="text-center mb-4">
+                            <img src="@(Model.Hinh ?? "/assets/fitcntt.png")"
+                                 class="rounded-circle shadow" style="width:120px;height:120px;object-fit:cover;" />
+                            <br />
+                            <div class="mt-3" style="text-align:left">
+                                <label>CẬP NHẬT ẢNH CÁ NHÂN</label>
+                                <input name="Hinh" type="file" class="form-control" accept="image/png,image/jpeg" />
+                            </div>
+                        </div>
+                        <label>MÃ GIẢNG VIÊN</label>
+                        @Html.TextBoxFor(m => m.MaGV, new { @class = "form-control mt-1 mb-3", placeholder = "Mã giảng viên" })
+
+                        <label>HỌ TÊN GIẢNG VIÊN</label>
+                        @Html.TextBoxFor(m => m.HoTen, new { @class = "form-control mt-1 mb-3", placeholder = "Họ tên" })
+                        @Html.ValidationMessageFor(m => m.HoTen, "", new { @class = "text-danger" })
+
+                        <label>EMAIL GIẢNG VIÊN</label>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control mt-1 mb-3", placeholder = "Email" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        <!-- Học vị -->
+                        <label class="fw-bold">HỌC VỊ</label>
+                        @Html.DropDownListFor(m => m.HocViId, Model.HocViList, "-- Chọn học vị --", new { @class = "form-control mt-1 mb-3" })
+                        <label class="fw-bold">LOẠI GIẢNG VIÊN</label>
+                        @Html.DropDownListFor(m => m.LoaiGVId, Model.LoaiGVList, "-- Chọn loại GV --", new { @class = "form-control mt-1 mb-3" })
+                        <!-- Địa chỉ thường trú -->
+                        <label class="fw-bold">ĐỊA CHỈ THƯỜNG TRÚ</label>
+                        @Html.TextBoxFor(m => m.DiaChiTT, new { @class = "form-control mt-1 mb-3", placeholder = "Địa chỉ thường trú" })
+
+                        <!-- Địa chỉ liên hệ -->
+                        <label class="fw-bold">ĐỊA CHỈ LIÊN HỆ</label>
+                        @Html.TextBoxFor(m => m.DaiChi, new { @class = "form-control mt-1 mb-3", placeholder = "Địa chỉ liên hệ" })
+
+                        <hr class="my-4" />
+
+                        <!-- Số tài khoản -->
+                        <label class="fw-bold">SỐ TÀI KHOẢN</label>
+                        @Html.TextBoxFor(m => m.STK, new { @class = "form-control mt-1 mb-3", placeholder = "Số tài khoản ngân hàng" })
+
+                        <!-- Tên tài khoản -->
+                        <label class="fw-bold">TÊN TÀI KHOẢN</label>
+                        @Html.TextBoxFor(m => m.TenTK, new { @class = "form-control mt-1 mb-3", placeholder = "Tên chủ tài khoản" })
+
+                        <!-- Tên ngân hàng -->
+                        <label class="fw-bold">TÊN NGÂN HÀNG</label>
+                        @Html.TextBoxFor(m => m.TenNH, new { @class = "form-control mt-1 mb-3", placeholder = "VD: Vietcombank, ACB, MB..." })
+
+                        <!-- Chi nhánh -->
+                        <label class="fw-bold">CHI NHÁNH</label>
+                        @Html.TextBoxFor(m => m.ChiNhanh, new { @class = "form-control mt-1 mb-3", placeholder = "Chi nhánh ngân hàng" })
+                    </div>
+
+                    <!-- CỘT 2 -->
+                    <div class="col-lg-6">
+
+                        <!-- Vai Trò -->
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">VAI TRÒ</label>
+                            <div class="p-3 border rounded shadow-sm" style="max-height:220px; overflow-y:auto;">
+                                <div class="row">
+                                    @foreach (var role in Model.RoleList)
+                                    {
+                                        <div class="col-6 mb-2">
+                                            <div class="form-check d-flex align-items-center gap-2 checkbox-large">
+                                                <input type="checkbox"
+                                                       name="SelectedRoleIds"
+                                                       value="@role.Value"
+                                                       class="form-check-input"
+                                                       @(Model.SelectedRoleIds.Contains(role.Value) ? "checked" : "") />
+
+                                                <label class="form-check-label">&nbsp; @role.Text</label>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ngành phụ trách -->
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">NGÀNH PHỤ TRÁCH</label>
+                            <div class="p-3 border rounded shadow-sm" style="max-height:220px; overflow-y:auto;">
+                                <div class="row">
+                                    @foreach (var nganh in Model.NganhList)
+                                    {
+                                        <div class="col-6 mb-2">
+                                            <div class="form-check d-flex align-items-center gap-2 checkbox-large">
+                                                <input type="checkbox"
+                                                       name="SelectedNganhIds"
+                                                       value="@nganh.Value"
+                                                       class="form-check-input"
+                                                       @(Model.SelectedNganhIds.Contains(nganh.Value) ? "checked" : "") />
+
+                                                <label class="form-check-label">&nbsp; @nganh.Text</label>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Ngành phụ trách -->
+                        <div class="mb-4">
+                            <label class="form-label fw-bold">NGÀNH GIẢNG DẠY</label>
+                            <div class="p-3 border rounded shadow-sm" style="max-height:220px; overflow-y:auto;">
+                                <div class="row">
+                                    @foreach (var nganh in Model.DayNganhList)
+                                    {
+                                        <div class="col-6 mb-2">
+                                            <div class="form-check d-flex align-items-center gap-2 checkbox-large">
+                                                <input type="checkbox"
+                                                       name="SelectedDayNganhIds"
+                                                       value="@nganh.Value"
+                                                       class="form-check-input"
+                                                       @(Model.SelectedDayNganhIds.Contains(nganh.Value) ? "checked" : "") />
+
+                                                <label class="form-check-label">&nbsp; @nganh.Text</label>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="p-3 border rounded shadow-sm" style="max-height:220px; overflow-y:auto;">
+                                <div class="form-check d-flex align-items-center gap-2 checkbox-large">
+                                    @Html.CheckBoxFor(m => m.IsLock, new { @class = "form-check-input" })
+
+                                    <label class="form-check-label text-danger fw-bold">
+                                        &nbsp; KHÓA TÀI KHOẢN
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-5 text-left">
+                    <a href="@Url.Action("Index")" class="btn btn-danger btn-lg px-5 ms-3">
+                        <i class="fas fa-arrow-left"></i> QUAY LẠI
+                    </a>
+                    <button type="submit" class="btn btn-success btn-lg px-5">
+                        <i class="fas fa-save"></i> LƯU THAY ĐỔI
+                    </button>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

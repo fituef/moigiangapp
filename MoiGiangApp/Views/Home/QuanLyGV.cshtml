@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MoiGiangApp.Models.GiangVien>
+@{
+    ViewBag.Title = "Quản Lý Giảng Viên";
+}
+
+<h2>Quản Lý Giảng Viên</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+@using (Html.BeginForm("ThemGV", "Home", FormMethod.Post, new { @class = "form-inline mb-3" }))
+{
+    <input type="text" name="maGV" placeholder="Mã GV" class="form-control mr-2" style="width:100px;" required />
+    <input type="text" name="tenGV" placeholder="Tên GV" class="form-control mr-2" style="width:180px;" required />
+    <input type="text" name="email" placeholder="Email" class="form-control mr-2" style="width:180px;" />
+    <input type="text" name="sdt" placeholder="SĐT" class="form-control mr-2" style="width:120px;" />
+    <button type="submit" class="btn btn-success">Thêm GV</button>
+}
+
+<table class="table table-sm">
+    <thead>
+        <tr>
+            <th>Mã GV</th>
+            <th>Tên GV</th>
+            <th>Email</th>
+            <th>SĐT</th>
+            <th>Lớp dạy</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var gv in Model)
+        {
+            <tr>
+                <td>@gv.MaGV</td>
+                <td>@gv.TenGV</td>
+                <td>@gv.Email</td>
+                <td>@gv.SoDienThoai</td>
+                <td>@gv.LopHocPhans.Count</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("DanhSach")" class="btn btn-primary">Quay lại danh sách lớp</a>

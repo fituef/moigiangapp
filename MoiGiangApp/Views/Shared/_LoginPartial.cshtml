@@ -1,0 +1,66 @@
+﻿@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity
+@using Microsoft.AspNet.Identity.Owin
+@{
+    var userId = User.Identity.GetUserId();
+    var db = new MoiGiangApp.Models.ApplicationDbContext();
+    var user = db.Users.Find(userId);
+
+    var userManager = HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>();
+    var roles = userManager.GetRoles(userId);
+}
+
+<li class="user-profile header-notification">
+    <a href="#!" class="waves-effect waves-light">
+        <img src="@user.Img" style="height: 40px !important; width: 40px !important" class="img-radius" alt="User-Profile-Image">
+        <span>
+            Hello! @user.HoTen </span>
+            <i class="ti-angle-down"></i>
+            </a>
+            <ul class="show-notification profile-notification">
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @*<li>
+                            @Html.ActionLink(" " + user.UserNganhs.FirstOrDefault().Nganh.TenNganh, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "nav-link" })
+                        </li>*@
+                        <li class="waves-effect waves-light">
+                                <a href="#!">
+                                    <i class="ti-settings"></i> Cài đặt
+                                </a>
+                            </li>
+                            <li class="waves-effect waves-light">
+                                <a href="user-profile.html">
+                                    <i class="ti-user"></i> Hồ sơ
+                                </a>
+                            </li>
+                            <li class="waves-effect waves-light">
+                                <a href="email-inbox.html">
+                                    <i class="ti-calendar"></i> Đăng ký lịch
+                                </a>
+                            </li>
+                            <li class="waves-effect waves-light">
+                                <a href="auth-lock-screen.html">
+                                    <i class="ti-lock"></i> Lock Screen
+                                </a>
+                            </li>
+                        <li class="waves-effect waves-light">
+                            <a href="javascript:document.getElementById('logoutForm').submit()">
+                                <i class="ti-layout-sidebar-left"></i> Logout
+                            </a>
+                        </li>
+
+                    }
+                }
+                else
+                {
+                    <ul class="navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })</li>
+                    </ul>
+                }
+            </ul>
+            </li>
